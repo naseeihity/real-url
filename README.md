@@ -15,6 +15,12 @@ zb douyu 9999
 - [ ] add room into a local playlist and save it
 - [ ] open a playlist with all added rooms
 
+## Not support now
+17live
+Douyin
+qie
+Kuaishou
+
 ## 说明
 
 这个仓库存放的是：获取一些直播平台真实流媒体地址（直播源）的 Python 代码实现。获取的地址均可在 PotPlayer、VLC 播放器中播放，部分可在 flv.js 中播放。
