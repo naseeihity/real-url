@@ -13,8 +13,12 @@ def get_real_url(rid):
             'cookie': 'did=web_'}
         response = requests.get(url=room_url, headers=headers).text
         m3u8_url = re.findall(
-            r'type="application/x-mpegURL" src="([\s\S]*?)_sd1000(tp)?(/index)?.m3u8', response)[0]
-        real_url = [m3u8_url[0] + i for i in ['.flv', '.m3u8']]
+            r'type="application/x-mpegURL" src="([\s\S]*?)_sd1000(tp)?(/index)?.m3u8', response)
+        if len(m3u8_url) > 0:
+            m3u8_url = m3u8_url[0]
+            real_url = [m3u8_url[0] + i for i in ['.flv', '.m3u8']]
+        else:
+            real_url = 'can not find url'
     except:
         real_url = '该直播间不存在或未开播'
     return real_url

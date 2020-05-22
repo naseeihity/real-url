@@ -10,11 +10,11 @@ def get_real_url(rid):
             rid)
         response = requests.get(url=room_url).json()
         data = response.get('data')[0]
-        real_url = {
-            'sdPlayUrl': data.get('sdPlayUrl', 0),
-            'hdPlayUrl': data.get('hdPlayUrl', 0),
-            'shdPlayUrl': data.get('shdPlayUrl', 0)
-        }
+        real_url = data.get('shdPlayUrl', 0)
+        if real_url == '0':
+            real_url = data.get('hdPlayUrl', 0)
+            if real_url == '0':
+                real_url = data.get('sdPlayUrl', 0)
     except:
         real_url = '直播间不存在或未开播'
     return real_url

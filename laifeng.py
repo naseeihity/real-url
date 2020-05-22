@@ -11,12 +11,12 @@ def get_real_url(rid):
         response_main = requests.get(
             url='http://v.laifeng.com/{}/m'.format(rid)).text
         stream_name = re.findall(r"initAlias:'(.*)?'", response_main)[0]
-        real_url = {}
+        real_url = []
         for stream_format in ['HttpFlv', 'Hls']:
             request_url = 'https://lapi.lcloud.laifeng.com/Play?AppId=101&StreamName={}&Action=Schedule&Version=2.0&Format={}'.format(
                 stream_name, stream_format)
             response = requests.get(url=request_url).json()
-            real_url[stream_format] = response.get(stream_format)[0].get('Url')
+            real_url.append(response.get(stream_format)[0].get('Url'))
     except:
         real_url = '该直播间不存在或未开播'
     return real_url

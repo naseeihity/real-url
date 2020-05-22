@@ -8,10 +8,14 @@ import json
 
 def get_real_url(rid):
     try:
-        room_url = rid
+        room_url = "https://live.ixigua.com/" + rid
         response = requests.get(url=room_url).text
         real_url = re.findall(r'playInfo":([\s\S]*?),"authStatus', response)[0]
-        real_url = re.sub(r'\\u002F', '/', real_url)
+        real_url = json.loads(re.sub(r'\\u002F', '/', real_url))
+        if len(real_url) > 0:
+            real_url = real_url[0]['FlvUrl']
+        else:
+            real_url = "url not found"
     except:
         real_url = '直播间不存在或未开播'
     return real_url

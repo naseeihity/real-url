@@ -5,17 +5,12 @@ import requests
 import re
 
 
-def get_real_url(room_url):
+def get_real_url(scid):
     try:
-        scid = re.findall(r'/l/(\S*).html', room_url)[0]
         flvurl = 'http://alcdn.f01.xiaoka.tv/live/{}.flv'.format(scid)
         m3u8url = 'http://al01.alcdn.hls.xiaoka.tv/live/{}.m3u8'.format(scid)
         rtmpurl = 'rtmp://alcdn.r01.xiaoka.tv/live/live/{}'.format(scid)
-        real_url = {
-            'flvurl': flvurl,
-            'm3u8url': m3u8url,
-            'rtmpurl': rtmpurl
-        }
+        real_url = [flvurl, m3u8url, rtmpurl]
     except:
         real_url = '链接错误'
     return real_url
@@ -35,8 +30,8 @@ def get_status(room_url):
 
 if __name__ == "__main__":
     rid = input('请输入一直播房间地址：\n')
-    status = get_status(rid)
-    print('当前直播状态', status)
+    # status = get_status(rid)
+    # print('当前直播状态', status)
     real_url = get_real_url(rid)
     print('该直播间源地址为：')
     print(real_url)

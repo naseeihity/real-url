@@ -1,6 +1,5 @@
 # 获取映客直播的真实流媒体地址。
 
-
 import requests
 
 
@@ -15,6 +14,7 @@ def get_real_url(rid):
             'record_url': record_url,
             'stream_addr': stream_addr
         }
+        real_url = real_url['stream_addr'][0]['stream_addr']
     except:
         real_url = '直播间不存在或未开播'
     return real_url

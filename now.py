@@ -15,6 +15,8 @@ def get_real_url(rid):
             'raw_rtmp_url': result.get('raw_rtmp_url', 0),
             'raw_flv_url': result.get('raw_flv_url', 0)
         }
+        real_url = [real_url['raw_hls_url'],
+                    real_url['raw_rtmp_url'], real_url['raw_flv_url']]
     except:
         real_url = '直播间不存在或未开播'
     return real_url

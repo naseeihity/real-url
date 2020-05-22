@@ -4,13 +4,19 @@
 
 import requests
 import re
+import json
 
 
 def get_real_url(rid):
+    real_url = []
     try:
         response = requests.post(
             url='https://look.163.com/live?id=' + rid).text
-        real_url = re.findall(r'"liveUrl":([\s\S]*),"liveType"', response)[0]
+        urls = re.findall(r'"liveUrl":([\s\S]*),"liveType"', response)[0]
+        urls = json.loads(urls)
+        real_url.append(urls['httpPullUrl'])
+        real_url.append(urls['hlsPullUrl'])
+        real_url.append(urls['rtmpPullUrl'])
     except:
         real_url = '该直播间不存在或未开播'
     return real_url

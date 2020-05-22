@@ -22,12 +22,14 @@ def get_room_info(id):
     return room_name, owner_name
 
 
-def get_room_list(platform, list):
+def get_room_list(platform, ids):
     rooms = []
-    room_name = platform
-    owner_name = ''
-    for id in list:
+    owner_name = platform
+    for id in ids:
+        room_name = id
         url = get_real_url_by_platform(platform, id)
+        if isinstance(url, type([])) and len(url) > 0:
+            url = url[0]
         if url is None:
             continue
         if platform == "douyu":
