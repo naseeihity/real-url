@@ -13,17 +13,21 @@ def get_real_url(rid):
             room_id = re.findall(r'(\d{19})', requests.get(url=rid).url)[0]
         else:
             room_id = rid
-        room_url = 'https://webcast-hl.amemv.com/webcast/room/reflow/info/?room_id={}&live_id=1'.format(room_id)
+        room_url = 'https://webcast-hl.amemv.com/webcast/room/reflow/info/?room_id={}&live_id=1'.format(
+            room_id)
         response = requests.get(url=room_url).json()
-        hls_pull_url = response.get('data').get('room').get('stream_url').get('hls_pull_url')
-        rtmp_pull_url = response.get('data').get('room').get('stream_url').get('rtmp_pull_url')
+        hls_pull_url = response.get('data').get(
+            'room').get('stream_url').get('hls_pull_url')
+        rtmp_pull_url = response.get('data').get(
+            'room').get('stream_url').get('rtmp_pull_url')
         real_url = [rtmp_pull_url, hls_pull_url]
     except:
         real_url = '直播间不存在或未开播或参数错误'
     return real_url
 
 
-rid = input('请输入抖音直播间room_id或分享链接：\n')
-real_url = get_real_url(rid)
-print('该直播间源地址为：')
-print(real_url)
+if __name__ == "__main__":
+    rid = input('请输入抖音直播间room_id或分享链接：\n')
+    real_url = get_real_url(rid)
+    print('该直播间源地址为：')
+    print(real_url)

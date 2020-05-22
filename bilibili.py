@@ -7,7 +7,8 @@ import re
 
 
 def get_real_rid(rid):
-    room_url = 'https://api.live.bilibili.com/room/v1/Room/room_init?id=' + str(rid)
+    room_url = 'https://api.live.bilibili.com/room/v1/Room/room_init?id=' + \
+        str(rid)
     response = requests.get(url=room_url).json()
     data = response.get('data', 0)
     if data:
@@ -24,7 +25,8 @@ def get_real_url(rid):
     room_id = room[1]
     if live_status:
         try:
-            room_url = 'https://api.live.bilibili.com/xlive/web-room/v1/index/getRoomPlayInfo?room_id={}&play_url=1&mask=1&qn=0&platform=web'.format(room_id)
+            room_url = 'https://api.live.bilibili.com/xlive/web-room/v1/index/getRoomPlayInfo?room_id={}&play_url=1&mask=1&qn=0&platform=web'.format(
+                room_id)
             response = requests.get(url=room_url).json()
             durl = response.get('data').get('play_url').get('durl', 0)
             real_url = durl[-1].get('url')
@@ -35,6 +37,7 @@ def get_real_url(rid):
     return real_url
 
 
-rid = input('请输入bilibili房间号：\n')
-real_url = get_real_url(rid)
-print('该直播间源地址为：\n' + real_url)
+if __name__ == "__main__":
+    rid = input('请输入bilibili房间号：\n')
+    real_url = get_real_url(rid)
+    print('该直播间源地址为：\n' + real_url)

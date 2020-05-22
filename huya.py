@@ -27,6 +27,7 @@ def get_real_url(room_id):
     return "https:" + url
 
 
-rid = input('请输入虎牙房间号：\n')
-real_url = get_real_url(rid)
-print('该直播间源地址为：\n' + real_url)
+if __name__ == "__main__":
+    rid = input('请输入虎牙房间号：\n')
+    real_url = get_real_url(rid)
+    print('该直播间源地址为：\n' + real_url)

@@ -10,7 +10,8 @@ def get_real_url(rid):
         response = requests.get('http://m-x.pps.tv/room/' + str(rid)).text
         anchor_id = re.findall(r'anchor_id":(\d*),"online_uid', response)[0]
         tt = int(time.time() * 1000)
-        url = 'http://api-live.iqiyi.com/stream/geth5?qd_tm={}&typeId=1&platform=7&vid=0&qd_vip=0&qd_uid={}&qd_ip=114.114.114.114&qd_vipres=0&qd_src=h5_xiu&qd_tvid=0&callback='.format(tt, anchor_id)
+        url = 'http://api-live.iqiyi.com/stream/geth5?qd_tm={}&typeId=1&platform=7&vid=0&qd_vip=0&qd_uid={}&qd_ip=114.114.114.114&qd_vipres=0&qd_src=h5_xiu&qd_tvid=0&callback='.format(
+            tt, anchor_id)
         headers = {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Referer': 'http://m-x.pps.tv/'
@@ -22,7 +23,8 @@ def get_real_url(rid):
     return real_url
 
 
-rid = input('请输入奇秀直播房间号：\n')
-real_url = get_real_url(rid)
-print('该直播间源地址为：')
-print(real_url)
+if __name__ == "__main__":
+    rid = input('请输入奇秀直播房间号：\n')
+    real_url = get_real_url(rid)
+    print('该直播间源地址为：')
+    print(real_url)

@@ -48,8 +48,10 @@ def get_real_url(rid):
         response = requests.post(url=room_url, data=post_data).json()
         roomStatus = response.get('roomStatus', 0)
         if roomStatus == '1':
-            real_url_flv = response.get('streamList')[-1].get('list')[0].get('url')
-            real_url_m3u8 = response.get('streamList')[-1].get('list_hls')[0].get('url')
+            real_url_flv = response.get(
+                'streamList')[-1].get('list')[0].get('url')
+            real_url_m3u8 = response.get(
+                'streamList')[-1].get('list_hls')[0].get('url')
             real_url = [real_url_flv, real_url_m3u8.replace('_480', '')]
         else:
             real_url = '直播间未开播'
@@ -58,7 +60,8 @@ def get_real_url(rid):
     return real_url
 
 
-rid = input('请输入火猫直播房间号：\n')
-real_url = get_real_url(rid)
-print('该直播间源地址为：')
-print(real_url)
+if __name__ == "__main__":
+    rid = input('请输入火猫直播房间号：\n')
+    real_url = get_real_url(rid)
+    print('该直播间源地址为：')
+    print(real_url)

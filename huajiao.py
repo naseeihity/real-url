@@ -8,7 +8,8 @@ import time
 def get_real_url(rid):
     tt = str(time.time())
     try:
-        room_url = 'https://h.huajiao.com/api/getFeedInfo?sid={tt}&liveid={rid}'.format(tt=tt, rid=rid)
+        room_url = 'https://h.huajiao.com/api/getFeedInfo?sid={tt}&liveid={rid}'.format(
+            tt=tt, rid=rid)
         response = requests.get(url=room_url).json()
         real_url = response.get('data').get('live').get('main')
     except:
@@ -16,6 +17,7 @@ def get_real_url(rid):
     return real_url
 
 
-rid = input('请输入花椒直播间号：\n')
-real_url = get_real_url(rid)
-print('该直播源地址为：\n' + real_url)
+if __name__ == "__main__":
+    rid = input('请输入花椒直播间号：\n')
+    real_url = get_real_url(rid)
+    print('该直播源地址为：\n' + real_url)

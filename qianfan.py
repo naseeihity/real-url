@@ -11,11 +11,12 @@ def get_real_url(rid):
         real_url = re.findall(r"flvUrl:'(.*)\?wsSecret", response)
         real_url = real_url[0]
     except:
-        real_url = '该直播间不存在或未开播' 
+        real_url = '该直播间不存在或未开播'
     return real_url
 
 
-rid = input('请输入千帆直播房间号：\n')
-real_url = get_real_url(rid)
-print('该直播间源地址为：')
-print(real_url)
+if __name__ == "__main__":
+    rid = input('请输入千帆直播房间号：\n')
+    real_url = get_real_url(rid)
+    print('该直播间源地址为：')
+    print(real_url)

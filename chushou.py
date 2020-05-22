@@ -6,7 +6,8 @@ import requests
 
 def get_real_url(rid):
     try:
-        room_url = 'https://chushou.tv/h5player/video/get-play-url.htm?roomId={}&protocols=2&callback='.format(rid)
+        room_url = 'https://chushou.tv/h5player/video/get-play-url.htm?roomId={}&protocols=2&callback='.format(
+            rid)
         response = requests.get(url=room_url).json()
         data = response.get('data')[0]
         real_url = {
@@ -19,7 +20,8 @@ def get_real_url(rid):
     return real_url
 
 
-rid = input('请输入触手直播间数字ID：\n')
-real_url = get_real_url(rid)
-print('该直播源地址为：')
-print(real_url)
+if __name__ == "__main__":
+    rid = input('请输入触手直播间数字ID：\n')
+    real_url = get_real_url(rid)
+    print('该直播源地址为：')
+    print(real_url)

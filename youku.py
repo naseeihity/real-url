@@ -9,15 +9,18 @@ import hashlib
 import json
 
 
-def get_real_url(liveId):
+def get_real_url_name(liveId):
     try:
         tt = str(int(time.time()*1000))
-        data = json.dumps({"liveId":liveId,"app":"Pc"}, separators=(',', ':'))
+        data = json.dumps({"liveId": liveId, "app": "Pc"},
+                          separators=(',', ':'))
         url = 'https://acs.youku.com/h5/mtop.youku.live.com.livefullinfo/1.0/?appKey=24679788'
         s = requests.Session()
         cookies = s.get(url).cookies
-        token = requests.utils.dict_from_cookiejar(cookies).get('_m_h5_tk')[0:32]
-        sign = hashlib.md5((token + '&' + tt + '&' + '24679788' + '&' + data).encode('utf-8')).hexdigest()
+        token = requests.utils.dict_from_cookiejar(
+            cookies).get('_m_h5_tk')[0:32]
+        sign = hashlib.md5(
+            (token + '&' + tt + '&' + '24679788' + '&' + data).encode('utf-8')).hexdigest()
         params = {
             't': tt,
             'sign': sign,
@@ -25,15 +28,27 @@ def get_real_url(liveId):
         }
         response = s.get(url, params=params).json()
         name = response.get('data').get('data').get('name')
-        streamName = response.get('data').get('data').get('stream')[0].get('streamName')
-        real_url = 'http://lvo-live.youku.com/vod2live/{}_mp4hd2v3.m3u8?&expire=21600&psid=1&ups_ts={}&vkey='.format(streamName, int(time.time()))
+        streamName = response.get('data').get(
+            'data').get('stream')[0].get('streamName')
+        real_url = 'http://lvo-live.youku.com/vod2live/{}_mp4hd2v3.m3u8?&expire=21600&psid=1&ups_ts={}&vkey='.format(
+            streamName, int(time.time()))
     except:
         name = real_url = '请求错误'
     return name, real_url
 
 
-liveId = input('请输入优酷轮播台liveId：\n')
-real_url = get_real_url(liveId)
-print('该直播间地址为：')
-print(real_url[0])
-print(real_url[1])
+def get_real_url(liveId, name=False):
+    room_name, realurl = get_real_url_name(liveId)
+
+    if name:
+        return room_name
+
+    return realurl
+
+
+if __name__ == "__main__":
+    liveId = input('请输入优酷轮播台liveId：\n')
+    real_url = get_real_url(liveId)
+    print('该直播间地址为：')
+    print(real_url[0])
+    print(real_url[1])

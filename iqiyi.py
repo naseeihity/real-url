@@ -31,17 +31,20 @@ def get_real_url(rid):
         vf = cmd5x.call('cmd5x', ba)
 
         # 请求
-        response = requests.get('https://live.video.iqiyi.com' + ba, params={'vf': vf}).text
-        url_json = json.loads(re.findall(r'try{.*?\((.*)\);}catch\(e\){};', response)[0])
+        response = requests.get(
+            'https://live.video.iqiyi.com' + ba, params={'vf': vf}).text
+        url_json = json.loads(re.findall(
+            r'try{.*?\((.*)\);}catch\(e\){};', response)[0])
         real_url = (url_json.get('data').get('streams'))[0].get('url')
-        real_url = real_url.replace('hlslive.video.iqiyi.com', 'm3u8live.video.iqiyi.com')
+        real_url = real_url.replace(
+            'hlslive.video.iqiyi.com', 'm3u8live.video.iqiyi.com')
     except:
         real_url = '直播间不存在或未开播'
     return real_url
 
 
-
-rid = input('请输入爱奇艺直播间id：\n') # 如：19732
-real_url = get_real_url(rid)
-print('该直播间源地址为：')
-print(real_url)
+if __name__ == "__main__":
+    rid = input('请输入爱奇艺直播间id：\n')  # 如：19732
+    real_url = get_real_url(rid)
+    print('该直播间源地址为：')
+    print(real_url)

@@ -6,7 +6,8 @@ import requests
 
 def get_real_url(rid):
     try:
-        room_url = 'https://webapi.busi.inke.cn/web/live_share_pc?uid=' + str(rid)
+        room_url = 'https://webapi.busi.inke.cn/web/live_share_pc?uid=' + \
+            str(rid)
         response = requests.get(url=room_url).json()
         record_url = response.get('data').get('file').get('record_url')
         stream_addr = response.get('data').get('live_addr')
@@ -19,7 +20,8 @@ def get_real_url(rid):
     return real_url
 
 
-rid = input('请输入映客直播间uid：\n')
-real_url = get_real_url(rid)
-print('该直播源地址为：')
-print(real_url)
+if __name__ == "__main__":
+    rid = input('请输入映客直播间uid：\n')
+    real_url = get_real_url(rid)
+    print('该直播源地址为：')
+    print(real_url)

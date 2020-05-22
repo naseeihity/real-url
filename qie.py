@@ -21,7 +21,7 @@ def get_real_url(rid):
             pid = video_info.get('pid', 0)
             if pid:
                 is_live = data.get('0').get(
-                'retBody').get('data').get('profile_info').get('is_live', 0)
+                    'retBody').get('data').get('profile_info').get('is_live', 0)
                 if is_live:
                     play_url = video_info.get('stream_infos')[
                         0].get('play_url')
@@ -37,6 +37,7 @@ def get_real_url(rid):
     return real_url
 
 
-rid = input('请输入企鹅电竞房间号：\n')
-real_url = get_real_url(rid)
-print('该直播间源地址为：\n' + real_url)
+if __name__ == "__main__":
+    rid = input('请输入企鹅电竞房间号：\n')
+    real_url = get_real_url(rid)
+    print('该直播间源地址为：\n' + real_url)

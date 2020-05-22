@@ -40,7 +40,7 @@ def get_sign(rid, post_v, tt, ub9):
     md5rb = hashlib.md5((rid + '10000000000000000000000000001501' + tt + '2501' +
                          post_v).encode('utf-8')).hexdigest()
     str4 = 'function get_sign(){var rb=\'' + md5rb + str3
-    str5 = re.sub(r'return rt;}[\s\S]*','return re;};', str4) 
+    str5 = re.sub(r'return rt;}[\s\S]*', 'return re;};', str4)
     str6 = re.sub(r'"v=.*&sign="\+', '', str5)
     docjs1 = execjs.compile(str6)
     sign = docjs1.call(
@@ -95,7 +95,8 @@ def get_sign_url(post_v, rid, tt, ub9):
         'Content-Type': 'application/x-www-form-urlencoded',
         'User-Agent': 'Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Mobile Safari/537.36'
     }
-    response = requests.post(url=request_url, headers=header, data=post_data).json()
+    response = requests.post(
+        url=request_url, headers=header, data=post_data).json()
     if response.get('code') == 0:
         real_url = (response.get('data')).get('url')
         if 'mix=1' in real_url:
@@ -129,18 +130,20 @@ def get_real_url(rid):
 def get_url_from_js(rid):
     # 从播放页源代码中直接匹配地址
     header = {
-    'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded'
     }
     try:
-        response = requests.get('https://www.douyu.com/{}'.format(rid), headers=header).text
+        response = requests.get(
+            'https://www.douyu.com/{}'.format(rid), headers=header).text
         real_url = re.findall(r'live/({}[\d\w]*?)_'.format(rid), response)[0]
     except:
         real_url = '直播间未开播或不存在'
     return "http://tx2play1.douyucdn.cn/live/" + real_url + ".flv?uuid="
 
 
-rid = input('请输入斗鱼数字房间号：\n')
-real_url = get_real_url(rid)
-print('该直播间地址为：\n' + real_url)
+if __name__ == "__main__":
+    rid = input('请输入斗鱼数字房间号：\n')
+    real_url = get_real_url(rid)
+    print('该直播间地址为：\n' + real_url)
 
 # print(get_url_from_js('85894'))
