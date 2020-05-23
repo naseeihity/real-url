@@ -16,18 +16,16 @@ def get_real_url(room_id):
     response = requests.get(url=room_url, headers=header)
     pattern = r"src=\"([\s\S]*)\" data-setup"
     pattern1 = r"hasvedio: \'([\s\S]*bgct)"
-    pattern2 = r"replay"  # 判断是否是回放
     result = re.findall(pattern, response.text, re.I)
     result1 = re.findall(pattern1, response.text, re.I)
 
-    if re.search(pattern2, response.text):
-        return result[0]
     if result or result1:
         result = result + result1
         url = re.sub(r'_[\s\S]*.m3u8', '.m3u8', result[0])  # 修改了正则留下了密钥和时间戳
         url = re.sub(r'hw.hls', 'al.hls', url)  # 华为的源好像比阿里的卡
     else:
         url = '未开播或直播间不存在'
+        return url
     return "https:" + url
 
 

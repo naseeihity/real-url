@@ -110,7 +110,7 @@ class GetUrl():
         return yizhibo_get_real_url(rid)
 
     def youku(self, rid):
-        return youku_get_real_url(rid)
+        return youku_get_real_url(rid, True)
 
     def yy(self, rid):
         return yy_get_real_url(rid)

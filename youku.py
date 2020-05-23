@@ -41,7 +41,7 @@ def get_real_url(liveId, name=False):
     room_name, realurl = get_real_url_name(liveId)
 
     if name:
-        return room_name
+        return realurl, room_name
 
     return realurl
 

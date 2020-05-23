@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="14599441-0244-49e8-b61a-f15d048d00be" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1cILou2tTfPIAZBCjATLJv1j8qL" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="real-url" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="add zhanqi 60973,82088" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="14599441-0244-49e8-b61a-f15d048d00be" name="Default Changelist" comment="" />
+      <created>1590211339631</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1590211339631</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590220544310">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1590220544310" />
+    <state width="815" height="646" key="DebuggerActiveHint" timestamp="1590217729036">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="815" height="646" key="DebuggerActiveHint/0.0.1440.900@0.0.1440.900" timestamp="1590217729036" />
+    <state width="1419" height="225" key="GridCell.Tab.0.bottom" timestamp="1590220778736">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="225" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1590220778736" />
+    <state width="1419" height="225" key="GridCell.Tab.0.center" timestamp="1590220778735">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="225" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1590220778735" />
+    <state width="1419" height="225" key="GridCell.Tab.0.left" timestamp="1590220778734">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="225" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1590220778734" />
+    <state width="1419" height="225" key="GridCell.Tab.0.right" timestamp="1590220778735">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="225" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1590220778735" />
+    <state width="1419" height="284" key="GridCell.Tab.1.bottom" timestamp="1590220487730">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="284" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1590220487730" />
+    <state width="1419" height="284" key="GridCell.Tab.1.center" timestamp="1590220487728">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="284" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1590220487728" />
+    <state width="1419" height="284" key="GridCell.Tab.1.left" timestamp="1590220487728">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="284" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1590220487728" />
+    <state width="1419" height="284" key="GridCell.Tab.1.right" timestamp="1590220487729">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="284" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1590220487729" />
+    <state x="205" y="39" key="SettingsEditor" timestamp="1590211483915">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="205" y="39" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1590211483915" />
+  </component>
+</project>

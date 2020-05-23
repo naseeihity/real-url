@@ -3,17 +3,28 @@
 ## Real-url for Alfred + IINA workflow
 
 ```
-zb {platfrom} {room id}
+# open by room id
+zb {platfrom} {room_id}
 
 Example:
 zb douyu 9999
+
+# add room to local list
+zb add {platform} {room_id}
+
+# open room from local list, if not set platform, then will open all rooms
+zb [{platform}]
+
+# open directly without update url
+zb d
 ```
 
 ## Features
 - [x] Open any platform live poadcast in IINA by room id
-- [ ] show room info in playlist
-- [ ] add room into a local playlist and save it
-- [ ] open a playlist with all added rooms
+- [x] show room info in playlist(douyu, youku)
+- [x] add room into a local playlist and save it
+- [x] open a playlist with all added rooms
+- [x] open directly from local playlist(not update url)
 
 ## Not support now
 17live
